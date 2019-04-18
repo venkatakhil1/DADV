@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+function ChangeState() {
+    // body...
+    var state=document.getElementById('S1').value;
+    if(state == 'S29'){
+        var data=document.getElementById('HdnTG').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+       
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+    }
+    else if(state == 'S26'){
+        var data=document.getElementById('HdnCG').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+        
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+
+    }
+    else if(state == 'S12'){
+        var data=document.getElementById('HdnMP').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+        
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+    }
+    else if(state == 'S16'){
+        var data=document.getElementById('HdnMZ').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+        
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+    }
+    else if(state == 'S20'){
+        var data=document.getElementById('HdnRJ').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+        
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+    }     
+}
+function result(select) {
+    var stat=document.getElementById('S1').value;
+    var cons=document.getElementById('S2').value;
+    //var name=document.getElementById('S2').innerText;
+    //alert(name);
+    //var op=document.getElementsByTagName('option');
+    //var op1=op[selectedIndex].innerHTML;
+    var name =select.options[select.selectedIndex].text;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       //document.getElementById("demo").innerHTML=this.responseText;
+        //var x=document.createElement("IMG");
+        //x.setAttribute("src","E:/image1.png");
+        //document.body.appendChild(x);
+          //  document.getElementById("demo").innerHTML = document.body.appendChild(x);
+          var e1=document.getElementsByTagName('IMG');
+          if(e1 != null)
+                alert(e1);
+        var x=document.createElement("IMG");
+        x.setAttribute("src","http://localhost:8000/file:/C:/xampp/htdocs/plot.png");
+        x.setAttribute("alt","Image Not found");
+        document.body.appendChild(x);
+    }
+  };
+  xhttp.open("GET", "/cgi-bin/Scrapping.py", true);
+  xhttp.send();
+}
+function sub() {
+    // body...
+    document.getElementById("form").submit();
+    
+}
+</script>
+<body>
+<center>
+<h1>ELECTION COMMISSION OF INDIA<br>
+GENERAL ELECTION TO VIDHAN SABHA TRENDS & RESULT 2018</h1>
+    <hr>
+    <h2><a href="/DADV/TrendAnalysis.html">Trends</a></h2>
+    <h2>Constituencywise-All Candidates</h2>
+    <div>
+        <input type="hidden" id="HdnCG" value="53,Abhanpur;67,Ahiwara;33,Akaltara;10,Ambikapur;79,Antagarh;52,Arang;3,Baikunthpur;45,Balodabazar;40,Basna;85,Bastar;31,Beltara;69,Bemetara;80,Bhanupratappur;1,Bharatpur-sonhat;46,Bhatapara;5,Bhatgaon;65,Bhilai Nagar;89,Bijapur;43,Bilaigarh;30,Bilaspur;29,Bilha;55,Bindranawagarh;36,Chandrapur;87,Chitrakot;88,Dantewara;58,Dhamtari;19,Dharamjaigarh;47,Dharsiwa;60,Dondi lohara;76,Dongargaon;74,Dongargarh;64,Durg City;63,Durg Gramin;61,Gunderdehi;86,Jagdalpur;37,Jaijaipur;34,Janjgir-champa;12,Jashpur;81,Kanker;44,Kasdol;22,Katghora;72,Kawardha;82,Keshkal;73,Khairagarh;41,Khallari;18,Kharsia;77,Khujji;83,Kondagaon;90,Konta;21,Korba;25,Kota;13,Kunkuri;57,Kurud;15,Lailunga;26,Lormi;9,Lundra;42,Mahasamund;2,Manendragarh;24,Marwahi;32,Masturi;78,Mohala-manpur;27,Mungeli;84,Narayanpur;70,Navagarh;23,Pali-tanakhar;38,Pamgarh;71,Pandariya;62,Patan;14,Pathalgaon;6,Pratappur;4,Premnagar;16,Raigarh;48,Raipur City Gramin;50,Raipur City North;51,Raipur City South;49,Raipur City West;54,Rajim;75,Rajnandgaon;7,Ramanujganj;20,Rampur;68,Saja;35,Sakti;8,Samri;59,Sanjari balod;39,Saraipali;17,Sarangarh;56,Sihawa;11,Sitapur;28,Takhatpur;66,Vaishali Nagar;">
+        <input type="hidden" id="HdnMP" value="166,AGAR ;191,ALIRAJPUR;223,ALOTE;66,AMARPATAN;123,AMARWARA;8,AMBAH ;130,AMLA;87,ANUPPUR;32,ASHOK NAGAR ;157,ASHTA ;9,ATER ;218,BADNAGAR;202,BADNAWAR;182,BADWAHA;91,BADWARA;174,BAGLI;94,BAHORIBAND;108,BAIHAR ;111,BALAGHAT ;28,BAMORI ;42,BANDA ;89,BANDHAVGARH;114,BARGHAT;96,BARGI;190,BARWANI (S.T.);145,BASODA;83,BEOHARI;149,BERASIA;131,BETUL;186,BHAGWANPURA;133,BHAINSDEHI;21,BHANDER ;181,BHIKANGAON;10,BHIND ;18,BHITARWAR;141,BHOJPUR;152,BHOPAL DAKSHINA-PASHCHIM ;153,BHOPAL MADHYA;150,BHOPAL UTTAR ;161,BIAORA;105,BICHHIYA ;52,BIJAWAR;35,BINA;156,BUDHNI;180,BURHANPUR;30,CHACHODA;33,CHANDERI;49,CHANDLA;51,CHHATARPUR;126,CHHINDWARA;61,CHITRAKOOT;79,CHITRANGI ;124,CHOURAI;76,CHURHAT;19,DABARA ;55,DAMOH ;22,DATIA;38,DEORI;72,DEOTALAB;203,DEPALPUR ;81,DEVSAR ;171,DEWAS;201,DHAR ;200,DHARAMPURI;82,DHOUHANI ;7,DIMANI ;104,DINDORI ;209,DR.AMBEDKAR NAGAR -Mhow ;121,GADARWARA;197,Gandhwani;227,GAROTH ;215,GHATIYA;132,GHODADONGRI;13,GOHAD ;118,GOTEGAON;154,GOVINDPURA;29,GUNA ;59,GUNNOUR;75,GURH;15,GWALIOR;16,GWALIOR EAST ;14,GWALIOR RURAL;17,GWALIOR SOUTH;135,HARDA  ;176,HARSUD;172,HATPIPLIYA;57,HATTA ;137,HOSHANGABAD;155,HUZUR;158,ICHHAWAR;204,INDORE-1;205,INDORE-2;206,INDORE-3;207,Indore-4;208,INDORE-5;99,JABALPUR CANTT;97,JABALPUR EAST;98,JABALPUR NORTH;100,JABALPUR WEST;56,JABERA ;84,JAISINGHNAGAR;85,JAITPUR;222,JAORA;44,JATARA;4,JAURA;230,JAWAD;193,JHABUA;192,JOBAT ;122,JUNNARDEO;169,KALAPIPAL;23,KARERA ;184,KASRAWAD;113,KATANGI;116,KEOLARI;177,KHANDWA;47,KHARGAPUR;185,KHARGONE;173,KHATEGAON;163,KHILCHIPUR;36,KHURAI ;27,KOLARAS ;86,KOTAMA ;198,KUKSHI ;146,KURWAI (SC);11,LAHAR ;117,LAKHANADON ;109,LANJI ;48,MAHARAJPUR;183,MAHESHWAR;213,MAHIDPUR;65,MAIHAR;53,MALHARA;225,MALHARGARH;228,MANASA ;199,MANAWAR;175,MANDHATA ;107,MANDLA ;224,MANDSOUR ;73,MANGAWAN;90,MANPUR ;71,MAUGANJ;12,MEHGAON;6,MORENA;93,MUDWARA;129,MULTAI;34,MUNGAOLI;212,NAGADA - KHACHAROD ;64,NAGOD;151,NARELA ;160,NARSINGHGARH;119,NARSINGPUR;40,NARYAWALI;229,NEEMUCH;179,NEPANAGAR ;46,NIWARI;106,NIWAS ;101,PANAGAR;178,PANDHANA ;128,PANDHURNA;60,PANNA ;189,PANSEMAL (S.T.);127,PARASIYA ;110,PARASWADA;95,PATAN ;54,PATHARIYA ;58,PAWAI;195,PETLAWAD;26,PICHHORE;139,PIPARIYA;24,POHARI ;45,PRITHVIPUR;88,PUSPRAJGARH;31,RAGHOGARH;62,RAIGAON;162,RAJGARH ;50,RAJNAGAR;188,RAJPUR (S.T.);67,RAMPUR BAGHELAN;220,RATLAM CITY;219,RATLAM RURAL;210,RAU ;39,REHLI;74,REWA;3,SABALAGADH ;41,SAGAR ;221,SAILANA ;142,SANCHI (SC);211,SANWER;164,SARANGPUR;196,SARDARPUR;63,SATNA;125,SAUSAR;159,SEHORE ;69,SEMARIYA;187,SENDHWA (S.T.);115,SEONI;136,SEONI MALWA;20,SEWDA;103,SHAHPURA ;167,SHAJAPUR ;148,SHAMSHABAD;1,SHEOPUR ;25,SHIVPURI;168,SHUJALPUR;77,SIDHI;78,SIHAWAL;102,SIHORA;143,SILWANI;80,SINGAROULI ;68,SIRMOUR;147,SIRONJ;138,SOHAGPUR;170,SONKATCH ;5,SUMAOLI;37,SURKHI;165,SUSNER;226,SUWASRA;214,TARANA ;120,TENDUKHEDA ;70,TEONTHAR;194,THANDLA;43,TIKAMGARH;134,TIMARNI;140,UDAIPURA;216,UJJAIN NORTH;217,UJJAIN SOUTH;144,VIDISHA ;2,VIJAYPUR ;92,VIJAYRAGHAVGARH;112,WARASEONI;">
+        <input type="hidden" id="HdnMZ" value="10,Aizawl  North - i;13,Aizawl East - i;14,Aizawl East ii;11,Aizawl North - ii;12,Aizawl North-iii;18,Aizawl South i;19,Aizawl South ii;20,Aizawl South-iii;15,Aizawl West i;16,Aizawl West ii;17,Aizawl West iii;8,Chalfilh;23,Champhai North;24,Champhai South;2,Dampa;25,East tuipui;1,Hachhek;28,Hrangturzo;5,Kolasib;38,Lawngtlai East;37,Lawngtlai West;21,Lengteng;31,Lunglei East;30,Lunglei North;33,Lunglei South;32,Lunglei West;3,Mamit;40,Palak;26,Serchhip;6,Serlui;39,Siaha;29,South tuipui;9,Tawi;34,Thorang;22,Tuichang;36,Tuichawng;27,Tuikum;4,Tuirial;7,Tuivawl;35,West tuipui;">
+        
+        <input type="hidden" id="HdnRJ" value="53,Adarsh Nagar;141,Ahore;100,Ajmer North;101,Ajmer South;65,Alwar Rural;66,Alwar Urban;47,Amber;193,Anta;6,Anupgarh    ;177,Asind;159,Aspur ;165,Bagidora ;56,Bagru ;120,Bali;91,Bamanwas;85,Bandikui ;63,Bansur;164,Banswara ;195,Baran-atru ;78,Bari;171,Bari sadri ;135,Barmer;77,Baseri ;57,Bassi ;76,Bayana;136,Baytu;103,Beawar;168,Begun;62,Behror;11,Bhadra;73,Bharatpur;180,Bhilwara;173,Bhim ;143,Bhinmal;126,Bhopalgarh ;14,Bikaner East;13,Bikaner West;131,Bilara ;186,Bundi;58,Chaksu   ;196,Chhabra;169,Chittorgarh;140,Chohtan ;43,Chomu;161,Chorasi ;22,Churu;51,Civil lines;197,Dag ;36,DANTARAMGARH;88,Dausa ;107,Deedwana;72,Deeg-kumher;112,Degana;97,Deoli - uniara;157,Dhariyawad  ;34,DHOD;79,Dholpur;45,Dudu ;158,Dungarpur ;32,Fatehpur;2,Ganganagar;90,Gangapur;163,Garhi ;162,Ghatol ;149,Gogunda ;139,Gudhamalani;8,Hanumangarh;49,Hawa mahal;82,Hindaun ;184,Hindoli;182,Jahazpur;132,Jaisalmer;116,Jaitaran;142,Jalore ;48,Jamwa ramgarh ;108,Jayal ;150,Jhadol  ;198,Jhalrapatan;46,Jhotwara;27,Jhunjhunu;128,Jodhpur;70,Kaman;167,Kapasan;3,Karanpur;83,Karauli;69,Kathumar ;105,Kekri ;185,Keshoraipatan ;12,Khajuwala ;93,Khandar;37,Khandela;199,Khanpur;151,Kherwara ;31,Khetri;110,Khinwsar;52,Kishan pole;194,Kishanganj ;98,Kishangarh;60,Kishangarh bas;15,Kolayat;189,Kota North;190,Kota South;40,Kotputli ;174,Kumbhalgarh;166,Kushalgarh ;33,Lachhmangarh;106,Ladnun;191,Ladpura ;89,Lalsot ;123,Lohawat;130,Luni;16,Lunkaransar;86,Mahuwa;113,Makrana;94,Malpura;54,Malviya Nagar;178,Mandal;183,Mandalgarh ;28,Mandawa;200,Manohar thana;119,Marwar junction;104,Masuda;154,Mavli;111,Merta ;61,Mundawar;74,Nadbai ;71,Nagar;109,NAGAUR;102,Nasirabad;176,Nathdwara;29,Nawalgarh;115,Nawan;38,Neem ka Thana;170,Nimbahera;95,Niwai ;10,Nohar;18,Nokha;125,Osian;137,Pachpadra;118,Pali;114,Parbatsar;122,Phalodi;44,Phulera ;25,Pilani ;9,Pilibanga ;147,Pindwara abu ;187,Pipalda;133,Pokaran;172,Pratapgarh ;99,Pushkar;5,Raisingh Nagar;80,Rajakhera;68,Rajgarh laxmangarh ;175,Rajsamand;192,Ramganj mandi ;67,Ramgarh;145,Raniwara;23,Ratangarh;148,Reodar ;19,Sadulpur;1,Sadulshahar;160,Sagwara ;179,Sahara;156,Salumber ;144,Sanchore;55,Sanganer;7,Sangaria;188,Sangod;84,Sapotra ;127,Sardarpura;21,Sardarshahar;92,Sawai madhopur;42,Shahpura;181,Shahpura;134,Sheo;124,Shergarh;17,SHREE DUNGARGARH;35,Sikar;87,Sikrai ;146,Sirohi;138,Siwana;117,Sojat ;129,Soorsagar;39,Srimadhopur;24,Sujangarh ;121,Sumerpur;26,Surajgarh;4,Suratgarh;20,Taranagar;64,Thanagazi;59,Tijara;81,Todabhim ;96,Tonk;153,Udaipur;152,Udaipur Rural;30,Udaipurwati;155,Vallabh Nagar;50,Vidhyadhar Nagar;41,Viratnagar;75,Weir ;">
+        <input type="hidden" id="HdnTG" value="82,Achampet ;7,Adilabad;97,Alair;80,Alampur ;59,Amberpet  ;36,Andole ;11,Armur;5,Asifabad ;118,Aswaraopeta ;69,Bahadurpura;19,Balkonda;14,Banswada;3,Bellampalli;119,Bhadrachalam ;94,Bhongir;108,Bhupalpalle;8,Boath ;12,Bodhan;67,Chandrayangutta ;66,Charminar ;2,Chennur ;53,Chevella ;27,Choppadandi ;86,Devarakonda ;76,Devarkadra;22,Dharmapuri;101,Dornakal ;41,Dubbak;79,Gadwal;42,Gajwel;99,Ghanpur (Station);65,Goshamahal;32,Husnabad;31,Huzurabad;89,Huzurnagar;48,Ibrahimpatnam;75,Jadcherla;21,Jagtial ;98,Jangoan;61,Jubilee Hills;13,Jukkal ;83,Kalwakurthy ;16,Kamareddy;26,Karimnagar ;64,Karwan;60,Khairatabad;112,Khammam;6,Khanapur ;90,Kodad;72,Kodangal;85,Kollapur;20,Koratla;117,Kothagudem ;46,Kukatpally;49,Lal Bahadur Nagar;114,Madhira ;102,Mahabubabad ;74,Mahbubnagar;50,Maheshwaram;77,Makthal;58,Malakpet;44,Malkajgiri;30,Manakondur ;4,Mancherial;24,Manthani;34,Medak;43,Medchal;88,Miryalguda;10,Mudhole;109,Mulug ;93,Munugode;57,Musheerabad;87,Nagarjuna Sagar;81,Nagarkurnool;95,Nakrekal ;92,Nalgonda;63,Nampalli;35,Narayankhed;73,Narayanpet;103,Narsampet ;37,Narsapur;9,Nirmal;18,Nizamabad (Rural);17,Nizamabad (Urban);113,Palair;100,Palakurthi;54,PARGI;104,Parkal;40,Patancheru;25,Peddapalle;110,Pinapaka ;45,Quthbullapur;51,Rajendranagar;23,Ramagundam;62,Sanath Nagar;39,Sangareddy;116,Sathupalli ;70,secunderabad;71,Secunderabad Cantt.;52,Serilingampally;84,Shadnagar;33,Siddipet;29,Sircilla;1,Sirpur;91,Suryapet;56,Tandur;96,Thungathurthy ;47,Uppal;28,Vemulawada;55,Vikarabad;78,Wanaparthy;106,Warangal East;105,Warangal West;107,Wardhanapet ;115,Wyra ;68,Yakutpura;111,Yellandu ;15,Yellareddy;38,Zahirabad ;">
+    </div>
+    <!-- "/cgi-bin/Scrapping.p"/cgi-bin/Scrapping.py"y" -->
+    <form action="/cgi-bin/crawling.py"  name="form1" method="GET" id="form">
+    <b>Select State</b>
+    <select name="s1" id="S1" onchange="return ChangeState(this)">
+        <option value="--select--">--select--</option>
+        <option value="S29">Telangana</option>
+        <option value="S26">Chhattisgarh</option>
+        <option value="S12">Madhya Pradesh</option>
+        <option value="S16">Mizoram</option>
+        <option value="S20">Rajasthan</option>
+    </select>
+    <b>Select Constituency</b>
+    <select name="s2" id="S2" onchange="return sub()">
+        <option value="--select--">--select--</option>
+        <option value="82">Achampet </option>
+        <option value="7">Adilabad</option>
+        <option value="97">Alair</option>
+        <option value="80">Alampur </option>
+        <option value="59">Amberpet  </option>
+        <option value="36">Andole </option>
+        <option value="11">Armur</option>
+        <option value="5">Asifabad </option>
+        <option value="118">Aswaraopeta </option>
+        <option value="69">Bahadurpura</option>
+        <option value="19">Balkonda</option>
+        <option value="14">Banswada</option>
+        <option value="3">Bellampalli</option>
+        <option value="119">Bhadrachalam </option>
+        <option value="94">Bhongir</option>
+        <option value="94">Bhongir</option>
+        <option value="8">Boath </option>
+        <option value="12">Bodhan</option>
+        <option value="67">Chandrayangutta </option>
+        <option value="66">Charminar </option>
+        <option value="2">Chennur </option>
+        <option value="53">Chevella </option>
+        <option value="27">Choppadandi </option>
+        <option value="86">Devarakonda </option>
+        <option value="76">Devarkadra</option>
+        <option value="22">Dharmapuri</option>
+        <option value="101">Dornakal </option>
+        <option value="41">Dubbak</option>
+        <option value="79">Gadwal</option>
+        <option value="42">Gajwel</option>
+        <option value="99">Ghanpur (Station)</option>
+        <option value="65">Goshamahal</option>
+        <option value="32">Husnabad</option>
+        <option value="31">Huzurabad</option>
+        <option value="89">Huzurnagar</option>
+        <option value="48">Ibrahimpatnam</option>
+        <option value="75">Jadcherla</option>
+        <option value="21">Jagtial </option>
+        <option value="98">Jangoan</option>
+        <option value="61">Jubilee Hills</option>
+        <option value="13">Jukkal </option>
+        <option value="83">Kalwakurthy </option>
+        <option value="16">Kamareddy</option>
+        <option value="26">Karimnagar </option>
+        <option value="64">Karwan</option>
+        <option value="60">Khairatabad</option>
+        <option value="112">Khammam</option>
+        <option value="6">Khanapur </option>
+        <option value="90">Kodad</option>
+        <option value="72">Kodangal</option>
+        <option value="85">Kollapur</option>
+        <option value="20">Koratla</option>
+        <option value="117">Kothagudem </option>
+        <option value="46">Kukatpally</option>
+        <option value="49">Lal Bahadur Nagar</option>
+        <option value="114">Madhira </option>
+        <option value="102">Mahabubabad </option>
+        <option value="74">Mahbubnagar</option>
+        <option value="50">Maheshwaram</option>
+        <option value="77">Makthal</option>
+        <option value="58">Malakpet</option>
+        <option value="44">Malkajgiri</option>
+        <option value="30">Manakondur </option>
+        <option value="4">Mancherial</option>
+        <option value="24">Manthani</option>
+        <option value="34">Medak</option>
+        <option value="43">Medchal</option>
+        <option value="88">Miryalguda</option>
+        <option value="10">Mudhole</option>
+        <option value="109">Mulug </option>
+        <option value="93">Munugode</option>
+        <option value="57">Musheerabad</option>
+        <option value="87">Nagarjuna Sagar</option>
+        <option value="81">Nagarkurnool</option>
+        <option value="95">Nakrekal </option>
+        <option value="92">Nalgonda</option>
+        <option value="63">Nampalli</option>
+        <option value="103">Narsampet </option>
+        <option value="37">Narsapur</option>
+        <option value="9">Nirmal</option>
+        <option value="18">Nizamabad (Rural)</option>
+        <option value="17">Nizamabad (Urban)</option>
+        <option value="113">Palair</option>
+        <option value="100">Palakurthi</option>
+        <option value="40">Patancheru</option>
+        <option value="45">Quthbullapur</option>
+        <option value="51">Rajendranagar</option>
+        <option value="23">Ramagundam</option>
+        <option value="62">Sanath Nagar</option>
+        <option value="39">Sangareddy</option>
+        <option value="70">secunderabad</option>
+        <option value="52">Serilingampally</option>
+        <option value="84">Shadnagar</option>
+        <option value="33">Siddipet</option>
+        <option value="29">Sircilla</option>
+        <option value="91">Suryapet</option>
+        <option value="47">Uppal</option>
+        <option value="28">Vemulawada</option>
+        <option value="55">Vikarabad</option>
+        <option value="106">Warangal East</option>
+        <option value="105">Warangal West</option>
+        <option value="107">Wardhanapet </option>
+        <option value="115">Wyra </option>
+        <option value="68">Yakutpura</option>
+        <option value="111">Yellandu </option>
+        <option value="15">Yellareddy</option>
+        <option value="38">Zahirabad </option>
+        </select>
+        
+        
+</form>
+
+<div id="demo">
+    <img src="\plot1.png" onerror="this.style.display='none'">
+</div>
+</center>
+</body>
+</html>
