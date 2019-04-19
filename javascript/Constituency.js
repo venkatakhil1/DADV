@@ -27,10 +27,7 @@ function processData(data){
   {
     x: Constituency,
     y: votes,
-    
-    marker:{
-    	color:['red','blue','green','yellow','orange','grey']
-    },
+    marker : {	color:['red','blue','green','yellow','orange','grey']	},
     type: 'bar'
   }
 ];
