@@ -52,6 +52,7 @@ var myObj = "";
 */		
 		
 function processData(allText) {
+  alert("Trend Analysis");
 		constituency = [];
 		winner = [];
 		winner_party = [];
@@ -161,7 +162,7 @@ function processData(allText) {
 		};
 		var data = [trace1, trace2];
 		//Plotly.plot('myDiv',data);
-		Plotly.newPlot('myDiv', data);
+		Plotly.newPlot('myDiv1', data);
    	unique_Win =[];
    	
 		$.each(winner_party, function(i, el){
@@ -184,7 +185,7 @@ function processData(allText) {
 	//$('#mySelector').append(content);
 }
 		
-	function stateChange(){
+	function stateChangeeee(){
 		//console.log("hello");
 
 		/*var xhttp = new XMLHttpRequest();

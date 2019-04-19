@@ -1,3 +1,78 @@
+function ChangeState1() {
+    // body...
+    var state=document.getElementById('S1').value;
+    if(state == 'S29'){
+        var data=document.getElementById('HdnTG').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+       
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+    }
+    else if(state == 'S26'){
+        var data=document.getElementById('HdnCG').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+        
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+
+    }
+    else if(state == 'S12'){
+        var data=document.getElementById('HdnMP').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+        
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+    }
+    else if(state == 'S16'){
+        var data=document.getElementById('HdnMZ').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+        
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+    }
+    else if(state == 'S20'){
+        var data=document.getElementById('HdnRJ').value;
+        var string=String(data);
+        var duplicate_data=string.split(';');
+        var i;
+        var select=document.getElementById('S2');
+        select.innerHTML= "--select--";
+        
+        for(i=0;i<duplicate_data.length;i++)
+        {
+            var str=duplicate_data[i].split(',');
+            select.innerHTML+= "<option value=\"" + str[0] + "\">"+ str[1] + "</option>";
+        }
+    }     
+}
 function sub() {
     var state=document.getElementById("S1").value;
     var Constituency=document.getElementById("S2").value;
