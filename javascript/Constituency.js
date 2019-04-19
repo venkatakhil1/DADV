@@ -19,7 +19,7 @@ function sub() {
     //document.getElementById("form").submit();
     
 }
-function processData(data){
+
 	function processData(data){
 	refinedata=data.split(/\r\n|\n/);
   Constituency=[];
