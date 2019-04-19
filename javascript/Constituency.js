@@ -16,7 +16,7 @@ function sub() {
 
   			});
 
-    document.getElementById("form").submit();
+    //document.getElementById("form").submit();
     
 }
 function processData(data){
