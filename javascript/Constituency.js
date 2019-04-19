@@ -19,10 +19,8 @@ function sub() {
     //document.getElementById("form").submit();
     
 }
-
-function processData(data)
-{
-  refinedata=data.split(/\r\n|\n/);
+function processData(data){
+	refinedata=data.split(/\r\n|\n/);
   Constituency=[];
   party=[];
   votes=[];
@@ -34,11 +32,13 @@ function processData(data)
     votes.push(refined[2]);
   }
   var data = [
-  	{
-    	x: Constituency,
-    	y: votes,
-    	type: 'bar'
-  	}];
-	Plotly.newPlot('myDiv', data);
+  {
+    x: Constituency,
+    y: votes,
+    type: 'bar'
+  }
+];
+
+Plotly.newPlot('myDiv', data);
 
 }
