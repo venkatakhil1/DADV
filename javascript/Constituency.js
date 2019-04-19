@@ -20,6 +20,26 @@ function sub() {
     
 }
 function processData(data){
-	alert(data);
+	function processData(data){
+	refinedata=data.split(/\r\n|\n/);
+  Constituency=[];
+  party=[];
+  votes=[];
+  for(var i=0;i<refinedata.length;i++)
+  {
+    var refined =refinedata[i].split(',');
+    Constituency.push(refined[0]);
+    party.push(refined[1]);
+    votes.push(refined[2]);
+  }
+  var data = [
+  {
+    x: Constituency,
+    y: votes,
+    type: 'bar'
+  }
+];
+
+Plotly.newPlot('myDiv', data);
 
 }
