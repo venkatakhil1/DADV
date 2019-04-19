@@ -2,7 +2,7 @@ function sub() {
     // body...
     var state=document.getElementById("S1").value;
     var Constituency=document.getElementById("S2").value;
-    alert(state+" "+Constituency);
+    //alert(state+" "+Constituency);
 
     var a = state+Constituency;
 
@@ -36,6 +36,9 @@ function processData(data){
     x: Constituency,
     y: votes,
     type: 'bar'
+    marker:{
+    	color:['red','blue','green','yellow','orange','grey']
+    },
   }
 ];
 
