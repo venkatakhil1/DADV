@@ -142,7 +142,40 @@ function processData1(data){
   }
 ];
 
-Plotly.newPlot('myDiv', data);
+
+var layOut2 = {
+  		    title: {
+    				//text:'Plot Title',
+    				font: {
+      						family: 'Courier New, monospace',
+      						size: 24
+    					},
+    				xref: 'paper',
+    				x: 0.05,
+  				},
+  			xaxis: {
+    				title: {
+      				text: 'x Axis : Candidate Name',
+      				font: {
+        				family: 'Courier New, monospace',
+        				size: 18,
+        				color: '#7f7f7f'
+        					}
+      				},
+    			},
+  			yaxis: {
+    				title: {
+      						text: 'y Axis : No.Of.Votes',
+      						font: {
+        							family: 'Courier New, monospace',
+        							size: 18,
+        							color: '#7f7f7f'
+      						}
+    				}
+  				}
+			};
+
+Plotly.newPlot('myDiv', data, layOut2);
 }
 
 
@@ -236,33 +269,50 @@ function processData(allText) {
               //alert(tarr);    
             }
              //alert(tarr[10])
+             //tarr[1]=constituency;
+             //tarr[2]=winner;
+             //tarr[3]=winner party;
+             //tarr[4]=runner;
+             //tarr[5]=runner party;
+             //tarr[6]=margin;
+             //tarr[8]=prev winner;
+             //tarr[9]=prev winner party;
+             //tarr[10]=prev margin;
+             //alert(tarr[7]);
+             //alert(tarr[1]+" "+tarr[2]+" "+tarr[3]+" "+tarr[4]+" "+tarr[5]+" "+tarr[6]+" "+tarr[7]+" "+tarr[8]+" "+tarr[9]+" "+tarr[10]);
+             //alert(tarr[8]+" "+tarr[9]+" "+tarr[10]);
              k1++;
             sl_no.push(k1);
             constituency.push(tarr[1]);
-            winner.push(tarr[6].split(' ').join(''));
-            winner_party.push(tarr[7]);
+            winner.push(tarr[2]);
+            //winner.push(tarr[2].split(' ').join(''));
+            winner_party.push(tarr[3]);
+            
             tarr[7] = tarr[7].split('_').join('');
             col.push(dict_colors[tarr[7]]);
-            runner.push(tarr[3]);
-            runner_party.push(tarr[4]);
-            margin_.push(tarr[2]);
+            runner.push(tarr[4]);
+            runner_party.push(tarr[5]);
+            margin_.push(tarr[6]);
 
             lines.push(tarr);
-            tarr[8] = tarr[8].split('_').join(' '); 
+            //tarr[8] = tarr[8].split('_').join(' '); 
             prev_winner.push(tarr[8]);
             
-            tarr[9] = tarr[9].split('_').join('');
+            
+            //tarr[9] = tarr[9].split('_').join(' '); 
             prev_margin.push(tarr[9]);
-            tarr[10] = tarr[10].split('_').join(' '); 
+            //tarr[10] = tarr[10].split('_').join('');
             prev_winner_party.push(tarr[10]); 
       }
       
     }
     for(var i=0;i<winner.length;i++){
     winner[i] = winner[i].split('_').join(' '); 
+    //alert(winner[i]);
     }
     for(var i=0;i<runner.length;i++){
     runner[i] = runner[i].split('_').join(' '); 
+    //alert(runner[i]);
     }
     for(var i=0;i<runner_party.length;i++){
     runner_party[i] = runner_party[i].split('_').join(' '); 
@@ -270,21 +320,18 @@ function processData(allText) {
     for(var i=0;i<winner_party.length;i++){
     winner_party[i] = winner_party[i].split('_').join(' '); 
     }
-    //alert(winner)
+    
     var a = constituency;
     var b = margin_;
     var c = new Array();
     for(var i = 0; i < a.length; i++)
     {
-        c.push('Const: '+a[i]+'<br>Winner: '+winner[i]+' Margin: '+b[i]+'  Party: '+winner_party[i]+'<br>Opponent: '+runner[i]+' Party: '+runner_party[i]);
+       
+       c.push('Const: '+a[i]+'<br>Winner: '+winner[i]+' Margin: '+tarr[6]+'  Party: '+winner_party[i]+'<br>Opponent: '+runner[i]+' Party: '+runner_party[i]);
     }
+    //alert(c);
+    ;
     
-    
-    //alert(c[0]);
-    //alert(margin_);
-    margin_ = winner.map(function (x) { 
-        return parseInt(x, 10); 
-      });
     sl_no = sl_no.map(function (x) { 
         return parseInt(x, 10); 
       });
@@ -292,14 +339,16 @@ function processData(allText) {
     prev_margin = prev_winner_party.map(function (x) { 
         return parseInt(x, 10); 
       });
+    
     var d = constituency;
     var e = prev_margin;
     var f = new Array();
     for(var i = 0; i < a.length; i++)
     {
-        f.push('Winner: '+prev_winner[i]+'  Party: '+prev_winner_party[i]+' Margin: '+e[i]);
+        //f.push('Winner: '+prev_winner[i]+'  Party: '+prev_winner_party[i]+' Margin: '+e[i]);
+        f.push('Winner: '+prev_winner[i]+'  Party: '+tarr[9]+' Margin: '+e[i]);
     }
-    //alert(sl_no);
+    //alert(sl_no+" "+margin_);
     var trace1 = {
         x: sl_no,
         y: margin_,
@@ -308,6 +357,7 @@ function processData(allText) {
         text:c,
         hoverinfo: 'text',
     };
+    //alert(sl_no+" "+prev_margin);
     var trace2 = {
         x: sl_no,
         y: prev_margin,
@@ -318,7 +368,46 @@ function processData(allText) {
     };
     var data = [trace1, trace2];
     //Plotly.plot('myDiv',data);
-    Plotly.newPlot('myDiv1', data);
+    //alert(data);
+
+     var layOut = {
+  		    title: {
+    				//text:'Plot Title',
+    				font: {
+      						family: 'Courier New, monospace',
+      						size: 24
+    					},
+    				xref: 'paper',
+    				x: 0.05,
+  				},
+  			xaxis: {
+    				title: {
+      				text: 'x Axis : No of Constituencies',
+      				font: {
+        				family: 'Courier New, monospace',
+        				size: 18,
+        				color: '#7f7f7f'
+        					}
+      				},
+    			},
+  			yaxis: {
+    				title: {
+      						text: 'y Axis : No.Of.Votes',
+      						font: {
+        							family: 'Courier New, monospace',
+        							size: 18,
+        							color: '#7f7f7f'
+      						}
+    				}
+  				}
+			};
+
+
+
+
+
+
+    Plotly.newPlot('myDiv1', data, layOut);
     unique_Win =[];
     
     $.each(winner_party, function(i, el){
@@ -562,7 +651,42 @@ function processData(allText) {
   }
 ];
 
-Plotly.newPlot('myDiv3', data);
+var layOut1 = {
+  		    title: {
+    				//text:'Plot Title',
+    				font: {
+      						family: 'Courier New, monospace',
+      						size: 24
+    					},
+    				xref: 'paper',
+    				x: 0.05,
+  				},
+  			xaxis: {
+    				title: {
+      				text: 'x Axis : Parties',
+      				font: {
+        				family: 'Courier New, monospace',
+        				size: 18,
+        				color: '#7f7f7f'
+        					}
+      				},
+    			},
+  			yaxis: {
+    				title: {
+      						text: 'y Axis : No.Of.Seats Won',
+      						font: {
+        							family: 'Courier New, monospace',
+        							size: 18,
+        							color: '#7f7f7f'
+      						}
+    				}
+  				}
+			};
+
+
+
+
+Plotly.newPlot('myDiv3', data, layOut1);
 }
     
 
